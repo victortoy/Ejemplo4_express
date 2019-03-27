@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+	<head>
+    	<!-- Required meta tags -->
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    	<!-- Bootstrap CSS -->
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    	<title>Hello, world!</title>
+  	</head>
+  	<body>
+    	<div class="container mt-2">
+    		<div class="jumbotron text-center">
+    			<h1>Dashboard</h1>
+    		</div>
+    		<div class="row">
+    			<div class="col text-center">
+    				<button type="button" class="btn btn-success btn-block" id="prender"><i class="fas fa-check-circle"></i></button>
+    			</div>
+    			<div class="col text-center">
+    				<button type="button" class="btn btn-dark btn-block" id="apagar"><i class="fas fa-power-off"></i></button>
+    			</div>
+    			<div class="col text-center">
+    				<button type="button" class="btn btn-warning btn-block" id="blink"><i class="fab fa-galactic-republic"></i></button>
+    			</div>
+    		</div>
+    	</div>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    	<script type="text/javascript">
+    		$(function(){
+    			$('.btn').on('click', function(){
+    				enviarAccion($(this).attr('id'))    				
+    			})    			
+    		})
+
+    		function enviarAccion(accion){
+    			$.ajax({
+					url: "http://localhost:8900/control?accion="+accion,
+					success: function(){
+						console.log('envio correcto')
+					}
+				})
+    		}
+    	</script>
+    </body>
+</html>
